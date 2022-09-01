@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="officer/base::layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1" />
+<title>Insert title here</title>
+</head>
+<body>
+	<section data-bs-version="5.1" class="table" id="table"
+		style="padding-right: 1rem; padding-left: 1rem; padding-top: 2rem; padding-bottom: 2rem">
+		<div class="container">
+			<div class="mbr-section-head">
+				<h3
+					class="mbr-section-title mbr-fonts-style align-center mb-0 display-2">
+					<strong>CaseFiles Registered</strong>
+				</h3>
+
+			</div>
+			<div class="row justify-content-center mt-4">
+				<div class="col-lg-10">
+					<table class="table">
+						<thead>
+							<tr>
+								<th scope="col" style="text-align: center;">#SNO.</th>
+								<th scope="col" style="text-align: center;">Victim_Name</th>
+								<th scope="col" style="text-align: center;">Victim_Mobile</th>
+								<th scope="col" style="text-align: center;">Occurrence_Date</th>
+								<th scope="col" style="text-align: center;">Type_of_Cirme</th>
+								<th scope="col" style="text-align: center;">Fir_Status</th>
+								<th scope="col" style="text-align: center;">Action</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="c:${casefiles}">
+								<th style="text-align: center;" scope="row"
+									th:text="${'CFNo'+c.casefile_id}"></th>
+								<td style="text-align: center;" th:text="${c.victim_name}"></td>
+								<td style="text-align: center;" th:text="${c.victim_mobile}"></td>
+								<td style="text-align: center;" th:text="${c.occurrence_date}"></td>
+								<td style="text-align: center;" th:text="${c.type_of_cirme}"></td>
+								<td style="text-align: center;" th:text="${c.fir_status}"></td>
+								<td style="text-align: center;">
+									<button class="btn btn-primary btn-sm"
+										style="height: 30px; width: 85px;"><a herf="#" th:href="@{'/officer/firView/'+${c.casefile_id}}" style="color:white;">View</a></button>
+									<button class="btn btn-dark btn-sm"
+										style="height: 30px; width: 85px;"><a herf="#" th:href="@{'/officer/firUpdate/'+${c.casefile_id}}" style="color:white">Update</a></button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<nav aria-label="Page navigation example">
+						<ul class="pagination justify-content-center">
+							<li class="page-item" th:classappend="${currentPage == 0 ? 'disabled':''}" ><a class="page-link" href="#" th:href="@{'/officer/firTable/'+ ${currentPage -1}}">Previous</a>
+							<li th:each="i:${#numbers.sequence(1,totalPage)}" class="page-item" th:classappend="${currentPage == i -1 ? 'active':''}"><a class="page-link" href="#" style="color:red" th:href="@{'/officer/firTable/'+${i -1}}" th:style="${currentPage == i -1 ? 'background-color:red;border-color:red':''}"><span th:text="${i}"></span></a></li>
+							<li class="page-item" th:classappend="${currentPage +1 == totalPage ? 'disabled':''}" ><a class="page-link" href="#" th:href="@{'/officer/firTable/'+ ${currentPage +1}}">Next</a>
+							</li>
+						</ul>
+					</nav>
+				</div>
+			</div>
+	</section>
+</body>
+</html>

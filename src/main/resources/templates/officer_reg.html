@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="base::layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<section data-bs-version="5.1" class="form6 cid-t1d9Sy2gXG"
+		id="form6-1v" style="padding-right: 1rem; padding-left: 1rem;">
+		<div class="container">
+
+			<div th:if="${session.message}"
+				th:classappend="${session.message.type}"
+				class="alert col-lg-8 mx-auto" role="alert">
+				<p th:text="${session.message.content}"></p>
+				<th:bolck th:text="${#session.removeAttribute('message')}"></th:bolck>
+			</div>
+
+			<div class="mbr-section-head">
+				<h3
+					class="mbr-section-title mbr-fonts-style align-center mb-0 display-2">
+					<strong>Officer Registration</strong>
+				</h3>
+
+			</div>
+			<div class="row justify-content-center mt-4">
+				<div class="col-lg-8 mx-auto mbr-form">
+					<form novalidate action="/officer_registration" method="POST"
+						class="mbr-form form-with-styler mx-auto" th:object="${user}">
+						<div class="row">
+							<div hidden="hidden" data-form-alert=""
+								class="alert alert-success col-12">Thanks for filling out
+								the form!</div>
+							<div hidden="hidden" data-form-alert-danger=""
+								class="alert alert-danger col-12">Oops...! some problem!</div>
+						</div>
+
+						<div class="dragArea row">
+							<div class="col-lg-12 col-md-12 col-sm-12 form-group mb-3"
+								data-for="name">
+								<input type="text" name="user_name" placeholder="Name"
+									data-form-field="name" class="form-control"
+									th:classappend="${#fields.hasErrors('user_name') ? 'is-invalid':''}"
+									id="name-form6-1v" th:value="${user.user_name}"
+									required="required">
+								<div class="invalid-feedback"
+									th:each="e:${#fields.errors('user_name')}" th:text="${e}"></div>
+
+							</div>
+							<div class="col-lg-12 col-md-12 col-sm-12 form-group mb-3"
+								data-for="name">
+								<input type="text" name="user_address" placeholder="Address"
+									data-form-field="name" class="form-control"
+									th:classappend="${#fields.hasErrors('user_address')?'is-invalid':''}"
+									id="name-form6-1v" th:value="${user.user_address}">
+								<div class="invalid-feedback"
+									th:each="e:${#fields.errors('user_address')}" th:text="${e}"></div>
+							</div>
+							<div class="col-lg-12 col-md-12 col-sm-12 form-group mb-3"
+								data-for="email">
+								<input type="email" name="user_email" placeholder="Email"
+									data-form-field="email" class="form-control"
+									th:classappend="${#fields.hasErrors('user_email')?'is-invalid':''}"
+									id="email-form6-1v" th:value="${user.user_email}">
+								<div class="invalid-feedback"
+									th:each="e:${#fields.errors('user_email')}" th:text="${e}"></div>
+							</div>
+							<div data-for="phone"
+								class="col-lg-12 col-md-12 col-sm-12 form-group mb-3">
+								<input type="tel" name="user_mobile" placeholder="Phone"
+									data-form-field="phone" class="form-control"
+									th:classappend="${#fields.hasErrors('user_mobile')?'is-invalid':''}"
+									id="phone-form6-1v" th:value="${user.user_mobile}">
+								<div class="invalid-feedback"
+									th:each="e:${#fields.errors('user_mobile')}" th:text="${e}"></div>
+							</div>
+							<div class="col-lg-12 col-md-12 col-sm-12 form-group mb-3"
+								data-for="name">
+								<input type="password" name="user_passwd" placeholder="Password"
+									data-form-field="name" class="form-control" id="name-form6-1v"
+									th:classappend="${#fields.hasErrors('user_passwd')?'is-invalid':''}"
+									th:value="${user.user_passwd}">
+								<div class="invalid-feedback"
+									th:each="e:${#fields.errors('user_passwd')}" th:text="${e}"></div>
+							</div>
+							<div class="col-lg-12 col-md-12 col-sm-12 form-group mb-3"
+								data-for="name">
+								<input type="text" name="user_idcard_no"
+									placeholder="Adharcard Number" data-form-field="name"
+									class="form-control"
+									th:classappend="${#fields.hasErrors('user_idcard_no')?'is-invalid':''}"
+									id="name-form6-1v" th:value="${user.user_idcard_no}">
+								<div class="invalid-feedback"
+									th:each="e:${#fields.errors('user_idcard_no')}" th:text="${e}"></div>
+							</div>
+							<div class="col-auto mbr-section-btn align-center">
+								<button type="submit" class="btn btn-primary display-4">Submit</button>
+							</div>
+						</div>
+						<span class="gdpr-block"> <label> <span
+								class="textGDPR display-7" style="color: #a7a7a7"><input
+									type="checkbox" name="agreement" id="gdpr-form6-1v"> By
+									continuing you agree to our <a
+									style="color: #149dcc; text-decoration: none;"
+									href="terms.html">Terms of Service</a> and <a
+									style="color: #149dcc; text-decoration: none;"
+									href="policy.html">Privacy Policy</a>.</span>
+						</label>
+						</span>
+					</form>
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
+</html>

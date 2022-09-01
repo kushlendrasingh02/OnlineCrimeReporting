@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="normal/base1::layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<section data-bs-version="5.1" class="table" id="table"
+		style="padding-right: 1rem; padding-left: 1rem; padding-top: 2rem; padding-bottom: 2rem">
+		<div class="container">
+			<div class="mbr-section-head">
+				<h3
+					class="mbr-section-title mbr-fonts-style align-center mb-0 display-2">
+					<strong>Profile Page</strong>
+				</h3>
+				<center>
+					<img src="" alt=""
+						style="height: 200px; width: 200px; object-fit: cover; border-radius: 50%;"
+						class="my-profile-picture"
+						th:src="@{'/images/'+${user.user_imgurl}}">
+				</center>
+			</div>
+			<div class="row justify-content-center mt-4">
+				<div class="col-lg-10">
+					<table class="table">
+						<tbody>
+							<tr>
+								<th scope="col" style="text-align: center;">#SNO.</th>
+								<td style="text-align: center;" scope="row"
+									th:text="${'USERNo'+user.user_id}"></td>
+							</tr>
+							<tr>
+								<th scope="col" style="text-align: center;">Name</th>
+								<td style="text-align: center;" th:text="${user.user_name}"></td>
+							</tr>
+							<tr>
+								<th scope="col" style="text-align: center;">Address</th>
+								<td style="text-align: center;" th:text="${user.user_address}"></td>
+							</tr>
+							<tr>
+								<th scope="col" style="text-align: center;">Email</th>
+								<td style="text-align: center;" th:text="${user.user_email}"></td>
+							</tr>
+							<tr>
+								<th scope="col" style="text-align: center;">Mobile</th>
+								<td style="text-align: center;" th:text="${user.user_mobile}"></td>
+							</tr>
+							<tr>
+								<th scope="col" style="text-align: center;">Identity Card</th>
+								<td style="text-align: center;" th:text="${user.user_idcard_no}"></td>
+							</tr>
+							</tboady>
+					</table>
+				</div>
+			</div>
+	</section>
+</body>
+</html>

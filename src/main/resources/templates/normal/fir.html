@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="normal/base1::layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1" />
+<title>Insert title here</title>
+</head>
+<body>
+	<section data-bs-version="5.1" class="form6 cid-t1d9Sy2gXG"
+		id="form6-1v" style="padding-right: 1rem; padding-left: 1rem;">
+
+		<div th:if="${session.message}"
+			th:classappend="${session.message.type}"
+			class="alert col-lg-8 mx-auto container" role="alert">
+			<p th:text="${session.message.content}"></p>
+			<th:bolck th:text="${#session.removeAttribute('message')}"></th:bolck>
+		</div>
+
+		<div class="mbr-section-head">
+			<h3
+				class="mbr-section-title mbr-fonts-style align-center mb-0 display-2">
+				<strong>F.I.R</strong>
+			</h3>
+		</div>
+		<div class="row justify-content-center mt-4">
+
+			<div class="col-lg-10 mx-auto mbr-form">
+
+				<form action="#" th:object="${casefile}"
+					enctype="multipart/form-data" method="post"
+					th:action="@{/user/processFirReg}"
+					class="mbr-form form-with-styler mx-auto">
+
+					<div class="dragArea row">
+
+						<p class="mb-1">
+							<strong>Full Name (As per Identity card issued by Gov.):</strong>
+						</p>
+
+						<div class="col-lg-12 col-md-12 col-sm-12 form-group mb-3"
+							data-for="name">
+							<input type="text" name="victim_name"
+								placeholder="Full Name (As per Identity card issued by Gov.)"
+								data-form-field="name" class="form-control" id="name-form6-1v"
+								required="required" />
+						</div>
+
+						<br> <br> <br>
+
+						<p class="mb-1">
+							<strong>Father's/Husband's Name:</strong>
+						</p>
+
+						<div class="col-lg-12 col-md-12 col-sm-12 form-group mb-3"
+							data-for="name">
+							<input type="text" name="victim_relativename"
+								placeholder="Father's/Husband's Name" data-form-field="name"
+								class="form-control" id="name-form6-1v" />
+						</div>
+
+						<br> <br> <br>
+
+						<p class="mb-1">
+							<strong>Date of Birth:</strong>
+						</p>
+
+						<div class="col-lg-12 col-md-12 col-sm-12 form-group mb-3"
+							data-for="text">
+							<input type="date" name="victim_birthdate"
+								placeholder="Date of Birth" data-form-field="name"
+								class="form-control" id="name-form6-1v" />
+						</div>
+
+						<br> <br> <br>
+
+						<p class="mb-1">
+							<strong>Phone:</strong>
+						</p>
+
+
+						<div data-for="phone"
+							class="col-lg-12 col-md-12 col-sm-12 form-group mb-3">
+							<input type="tel" name="victim_mobile" placeholder="Phone"
+								data-form-field="phone" class="form-control" id="phone-form6-1v" />
+							<div class="invalid-feedback"></div>
+						</div>
+
+						<br> <br> <br>
+
+						<p class="mb-1">
+							<strong>Nationality:</strong>
+						</p>
+
+						<div class="col-lg-12 col-md-12 col-sm-12 form-group mb-3"
+							data-for="name">
+							<input type="text" name="victum_nationality"
+								placeholder="Nationality" data-form-field="name"
+								class="form-control" id="name-form6-1v" />
+							<div class="invalid-feedback"></div>
+						</div>
+
+						<br> <br> <br>
+
+						<p class="mb-1">
+							<strong>UID No.:</strong>
+						</p>
+
+						<div class="col-lg-12 col-md-12 col-sm-12 form-group mb-3"
+							data-for="name">
+							<input type="text" name="victum_uid_no" placeholder="UID No."
+								data-form-field="name" class="form-control" id="name-form6-1v" />
+							<div class="invalid-feedback"></div>
+						</div>
+
+						<br> <br> <br>
+
+						<p class="mb-1">
+							<strong>Passport No.:</strong>
+						</p>
+
+						<div class="col-lg-12 col-md-12 col-sm-12 form-group mb-3"
+							data-for="name">
+							<input type="text" name="victum_passport"
+								placeholder="Passport No." data-form-field="name"
+								class="form-control" id="name-form6-1v" />
+							<div class="invalid-feedback"></div>
+						</div>
+
+						<br> <br> <br>
+
+						<p class="mb-1">
+							<strong>Address:</strong>
+						</p>
+
+						<div class="col-lg-12 col-md-12 col-sm-12 form-group mb-3"
+							data-for="name">
+							<input type="text" name="victum_address" placeholder="Address"
+								data-form-field="name" class="form-control" id="name-form6-1v" />
+							<div class="invalid-feedback"></div>
+						</div>
+
+						<br> <br> <br>
+
+						<p class="mb-1">
+							<strong>District:</strong>
+						</p>
+
+						<div class="col-lg-12 col-md-12 col-sm-12 form-group mb-3"
+							data-for="name">
+							<input type="text" name="victum_district" placeholder="District"
+								data-form-field="name" class="form-control" id="name-form6-1v" />
+							<div class="invalid-feedback"></div>
+						</div>
+
+						<br> <br> <br>
+
+						<p class="mb-1">
+							<strong>Police Station:</strong>
+						</p>
+
+						<div class="col-lg-12 col-md-12 col-sm-12 form-group mb-3"
+							data-for="name">
+							<input type="text" name="victum_ps" placeholder="Police Station"
+								data-form-field="name" class="form-control" id="name-form6-1v" />
+							<div class="invalid-feedback"></div>
+						</div>
+
+						<br> <br> <br>
+
+						<p class="mb-1">
+							<strong>Date of Occurrence:</strong>
+						</p>
+
+						<div class="col-lg-12 col-md-12 col-sm-12 form-group mb-3"
+							data-for="name">
+							<input type="Date" name="occurrence_date" placeholder="Date"
+								data-form-field="name" class="form-control" id="name-form6-1v" />
+							<div class="invalid-feedback"></div>
+						</div>
+
+						<br> <br> <br>
+
+						<p class="mb-1">
+							<strong>Time of Occurrence:</strong>
+						</p>
+
+						<div class="col-lg-12 col-md-12 col-sm-12 form-group mb-3"
+							data-for="name">
+							<input type="time" name="occurrence_time"
+								placeholder="Occurrence Time" data-form-field="name"
+								class="form-control" id="name-form6-1v" />
+							<div class="invalid-feedback"></div>
+						</div>
+
+						<br> <br> <br>
+
+						<p class="mb-1">
+							<strong>Place of Occurrence:</strong>
+						</p>
+
+						<div class="col-lg-12 col-md-12 col-sm-12 form-group mb-3"
+							data-for="name">
+							<input type="text" name="occurrence_address"
+								placeholder="Occurrence Place" data-form-field="name"
+								class="form-control" id="name-form6-1v" />
+							<div class="invalid-feedback"></div>
+						</div>
+
+						<br> <br> <br>
+
+						<p class="mb-1">
+							<strong>Type of Crime:</strong>
+						</p>
+
+						<div class="col-lg-12 col-md-12 col-sm-12 form-group mb-3"
+							data-for="name">
+							<input type="text" name="type_of_cirme"
+								placeholder="Type of Crime" data-form-field="name"
+								class="form-control" id="name-form6-1v" />
+							<div class="invalid-feedback"></div>
+						</div>
+
+						<br> <br> <br>
+
+						<p class="mb-1">
+							<strong>Description:</strong>
+						</p>
+
+						<div class="col-lg-12 col-md-12 col-sm-12 form-group mb-3"
+							data-for="name">
+							<textarea id="mytextarea" name="crime_disc">Hello, World!</textarea>
+							<script
+								src="https://cdn.tiny.cloud/1/ol5yc66qbrh33tm319zejyqc33dbajfkrath54bsu3lhzcwt/tinymce/6/tinymce.min.js"
+								referrerpolicy="origin"></script>
+							<script>
+        						tinymce.init({
+            						selector: '#mytextarea'
+       							 });
+
+        						$(document).ready(() => {
+            						$(".item").removeClass("active");
+            						$("#add-contact-link").addClass("active");
+        						})
+
+    						</script>
+							<div class="invalid-feedback"></div>
+						</div>
+
+						<br> <br> <br>
+
+						<p class="mb-1">
+							<strong>Pictures/Screenshots as a Proof:</strong>
+						</p>
+
+						<div class="col-lg-12 col-md-12 col-sm-12 form-group mb-3"
+							data-for="file">
+							<input type="file" name="proof"
+								placeholder="Pictures/Screenshots as a Proof"
+								data-form-field="file" class="form-control"
+								id="inputGroupFile04" required="required"
+								aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+						</div>
+
+
+						<div class="col-auto mbr-section-btn align-center">
+							<button type="submit" class="btn btn-primary display-4">
+								Submit</button>
+						</div>
+					</div>
+
+					<span class="gdpr-block"> <label> <span
+							class="textGDPR display-7" style="color: #a7a7a7"><input
+								type="checkbox" name="agreement" id="gdpr-form6-1v" /> By
+								continuing you agree to our <a
+								style="color: #149dcc; text-decoration: none" href="terms.html">Terms
+									of Service</a> and <a style="color: #149dcc; text-decoration: none"
+								href="policy.html">Privacy Policy</a>.</span>
+					</label>
+					</span>
+				</form>
+			</div>
+		</div>
+	</section>
+</body>
+</html>

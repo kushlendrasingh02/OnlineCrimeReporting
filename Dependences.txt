@@ -1,0 +1,11 @@
+Online Crime Reporting
+
+Dependencies Required
+1. starter-web
+2. starter-thymeleaf
+3. starter-data-jpa
+4. starter-security
+5. mysql-driver
+6. validation-api
+7. spring-boot-devtools
+8. hibernate-validator
